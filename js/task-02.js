@@ -8,7 +8,6 @@ const ingredients = [
 ];
 
 const ingredientsElem = document.querySelector("#ingredients");
-// console.dir(ingredientsElem);
 
 const ingradArr = ingredients.map((ingredient) => {
   const li = document.createElement("li");
@@ -16,7 +15,5 @@ const ingradArr = ingredients.map((ingredient) => {
   li.classList.add("item");
   return li;
 });
-
-console.log(ingradArr);
 
 ingredientsElem.append(...ingradArr);
