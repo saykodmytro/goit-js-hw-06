@@ -5,16 +5,28 @@ function getRandomHexColor() {
 }
 
 const inputEl = document.querySelector("#controls input");
-console.log(inputEl);
 const createBtn = document.querySelector("[data-create]");
-console.log(createBtn);
 const destroyBtn = document.querySelector("[data-destroy]");
-console.log(destroyBtn);
 const boxesContainer = document.querySelector("#boxes");
-console.log(boxesContainer);
+let boxSize = 30;
 
 createBtn.addEventListener("click", createBoxesOnClick);
-function createBoxesOnClick() {}
+function createBoxesOnClick() {
+  const countBoxes = Number(inputEl.value);
+  console.log("countBoxes: ", countBoxes);
+
+  for (let i = 0; i < countBoxes; i += 1) {
+    const box = document.createElement("div");
+    box.style.width = boxSize + "px";
+    box.style.height = `${boxSize}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    boxesContainer.append(box);
+    boxSize += 10;
+  }
+}
 
 destroyBtn.addEventListener("click", destroyBoxesOnClick);
-function destroyBoxesOnClick() {}
+function destroyBoxesOnClick() {
+  boxesContainer.innerHTML = "";
+  boxSize = 30;
+}
